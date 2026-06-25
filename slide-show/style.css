@@ -1,0 +1,10 @@
+
+.slide{
+    display: none;
+    width: 400px;
+}
+
+.active{
+    display: block;
+}
+
