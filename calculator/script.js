@@ -17,9 +17,9 @@ let expression = "";
 /*
   NUMBER BUTTONS
 */
-numberButtons.forEach(button =>
-  button.addEventListener('click',()=>{
-    expression += button.textContent
+numberButtons.forEach(btn =>
+  btn.addEventListener('click',()=>{
+    expression += btn.textContent
     display.value = expression
   })
 )
@@ -29,7 +29,7 @@ numberButtons.forEach(button =>
 */
 operatorButtons.forEach(button =>
   button.addEventListener('click',()=>{
-    if (expression !== ""){
+    if(expression !== ""){
       expression += button.textContent
       display.value = expression
     }
@@ -44,6 +44,7 @@ clearBtn.addEventListener('click',()=>{
   display.value = ""
 })
 
+
 /*
   EQUALS
 */
@@ -55,6 +56,6 @@ equalsBtn.addEventListener('click',()=>{
     expression = result.toString()
   } catch (error) {
     display.value = "Error"
-    expression = ""
+    expression = 0
   }
 })
