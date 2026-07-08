@@ -5,35 +5,22 @@ const prevBtn = document.getElementById("prev")
 let currentSlide = 0
 
 function showSlides(){
+slides.forEach(slide =>{
+    slide.classList.remove("active","left","right","hidden")
+    slide.classList.add("hidden")
+})
 
-    slides.forEach(slide=>{
+const prev = (currentSlide - 1 + slides.length)% slides.length
+const next = (currentSlide + 1)% slides.length
 
-        slide.classList.remove(
-            "active",
-            "left",
-            "right",
-            "hidden"
-        )
+slides[currentSlide].classList.remove("hidden")
+slides[currentSlide].classList.add("active")
 
-        slide.classList.add("hidden")
-    })
+slides[prev].classList.remove("hidden")
+slides[prev].classList.add("left")
 
-    const prev =
-        (currentSlide - 1 + slides.length) %
-        slides.length
-
-    const next =
-        (currentSlide + 1) %
-        slides.length
-
-    slides[currentSlide].classList.remove("hidden")
-    slides[currentSlide].classList.add("active")
-
-    slides[prev].classList.remove("hidden")
-    slides[prev].classList.add("left")
-
-    slides[next].classList.remove("hidden")
-    slides[next].classList.add("right")
+slides[next].classList.remove("hidden")
+slides[next].classList.add("right")
 }
 
 function nextSlide(){
@@ -84,3 +71,5 @@ prevBtn.addEventListener("click",()=>{
 
     restartInterval()
 })
+
+
